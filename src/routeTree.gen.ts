@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ForYourBusinessRouteImport } from './routes/for-your-business'
+import { Route as ForYourHomeRouteImport } from './routes/for-your-home'
+import { Route as HotspotRouteImport } from './routes/hotspot'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as TermsRouteImport } from './routes/terms'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForYourBusinessRoute = ForYourBusinessRouteImport.update({
+  id: '/for-your-business',
+  path: '/for-your-business',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForYourHomeRoute = ForYourHomeRouteImport.update({
+  id: '/for-your-home',
+  path: '/for-your-home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HotspotRoute = HotspotRouteImport.update({
+  id: '/hotspot',
+  path: '/hotspot',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/for-your-business': typeof ForYourBusinessRoute
+  '/for-your-home': typeof ForYourHomeRoute
+  '/hotspot': typeof HotspotRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/for-your-business': typeof ForYourBusinessRoute
+  '/for-your-home': typeof ForYourHomeRoute
+  '/hotspot': typeof HotspotRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/for-your-business': typeof ForYourBusinessRoute
+  '/for-your-home': typeof ForYourHomeRoute
+  '/hotspot': typeof HotspotRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/signup': typeof SignupRoute
+  '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/for-your-business'
+    | '/for-your-home'
+    | '/hotspot'
+    | '/login'
+    | '/privacy'
+    | '/signup'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/for-your-business'
+    | '/for-your-home'
+    | '/hotspot'
+    | '/login'
+    | '/privacy'
+    | '/signup'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/for-your-business'
+    | '/for-your-home'
+    | '/hotspot'
+    | '/login'
+    | '/privacy'
+    | '/signup'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  ForYourBusinessRoute: typeof ForYourBusinessRoute
+  ForYourHomeRoute: typeof ForYourHomeRoute
+  HotspotRoute: typeof HotspotRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SignupRoute: typeof SignupRoute
+  TermsRoute: typeof TermsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-your-business': {
+      id: '/for-your-business'
+      path: '/for-your-business'
+      fullPath: '/for-your-business'
+      preLoaderRoute: typeof ForYourBusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/for-your-home': {
+      id: '/for-your-home'
+      path: '/for-your-home'
+      fullPath: '/for-your-home'
+      preLoaderRoute: typeof ForYourHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hotspot': {
+      id: '/hotspot'
+      path: '/hotspot'
+      fullPath: '/hotspot'
+      preLoaderRoute: typeof HotspotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  ForYourBusinessRoute: ForYourBusinessRoute,
+  ForYourHomeRoute: ForYourHomeRoute,
+  HotspotRoute: HotspotRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  SignupRoute: SignupRoute,
+  TermsRoute: TermsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
