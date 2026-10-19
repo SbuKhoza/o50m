@@ -3,9 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { Info, Loader2 } from "lucide-react";
 import { logIn, loginSchema, requestPasswordReset, signUp, signUpSchema } from "@/services/authService";
 
-type Errors = Record<string, string | undefined>;
+type Errors = { email?: string | undefined; password?: string | undefined; fullName?: string | undefined; phone?: string | undefined; confirmPassword?: string | undefined };
 
-function Field({ id, label, type = "text", error, autoComplete }: { id: string; label: string; type?: string; error?: string; autoComplete?: string }) {
+function Field({ id, label, type = "text", error, autoComplete }: { id: string; label: string; type?: string; error?: string | undefined; autoComplete?: string }) {
   return (
     <div>
       <label htmlFor={id} className="block font-semibold text-navy">{label}</label>
@@ -40,9 +40,9 @@ function Submit({ loading, children }: { loading: boolean; children: ReactNode }
 }
 
 function errorsOf(issues: { path: PropertyKey[]; message: string }[]): Errors {
-  const e: Errors = {};
+  const e: Record<string, string> = {};
   for (const i of issues) e[String(i.path[0])] ??= i.message;
-  return e;
+  return e as Errors;
 }
 
 export function LoginForm() {
