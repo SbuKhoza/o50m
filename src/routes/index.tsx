@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
+import { createFileRoute, useLocation } from "@tanstack/react-router";
 import hero from "@/assets/hero-community.png.asset.json";
 import { CoverageChecker, COVERAGE_INPUT_ID } from "@/components/coverage/CoverageChecker";
 import { ProductIntroGrid } from "@/components/products/ProductIntroGrid";
@@ -11,6 +11,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Reliable internet right where you live. Check which O50M Fibre, 5G, Hotspot and LTE options are available at your address." },
       { property: "og:title", content: "O50M Broadband — Reliable internet, right where you live" },
       { property: "og:description", content: "Check which O50M connections are available at your home or business address." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -29,40 +31,29 @@ function Index() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-sky/70 to-background">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-10 pt-10 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:pt-16">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">O50M Broadband</p>
-            <h1 className="mt-3 font-display text-4xl font-bold leading-[1.1] text-navy sm:text-5xl lg:text-6xl">
-              Reliable internet. <span className="text-primary">Right where you live.</span>
+      <section className="relative isolate overflow-hidden bg-navy">
+        <img
+          src={hero.url}
+          alt="A township neighbourhood at sunrise where a young woman uses her phone and friends share a laptop outside their homes"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[60%_center]"
+          width={1920}
+          height={728}
+        />
+        <div className="hero-shade absolute inset-0 -z-10" />
+        <div className="mx-auto max-w-7xl px-4 pb-6 pt-10 sm:px-6 sm:pt-14 lg:pt-20">
+          <div className="max-w-2xl">
+            <h1 className="font-display text-4xl font-bold leading-[1.1] text-hero-foreground sm:text-5xl lg:text-6xl">
+              O50M Broadband
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 font-display text-2xl font-semibold leading-snug text-primary sm:text-3xl">Reliable internet. Right where you live.</p>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-hero-foreground/90">
               Discover fast, dependable internet options for your home or business. Check your address to find out which O50M connections are available in your area.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button onClick={focusCoverage} className="rounded-xl bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground hover:bg-primary/90">
-                Check Coverage
-              </button>
-              <Link to="/login" className="rounded-xl border-2 border-navy/15 bg-card px-7 py-3 text-base font-semibold text-navy hover:border-primary hover:text-primary">
-                Login / Sign Up
-              </Link>
-            </div>
+            <p className="mt-6 text-sm font-semibold text-hero-foreground">Fibre · 5G · Hotspot · LTE</p>
           </div>
-          <div className="relative">
-            <img
-              src={hero.url}
-              alt="A township neighbourhood at sunrise where a young woman uses her phone and friends share a laptop outside their homes"
-              className="aspect-[4/3] w-full rounded-3xl object-cover object-[18%_center] shadow-soft lg:aspect-[5/4]"
-              width={1920}
-              height={728}
-            />
-            <div className="absolute -bottom-4 left-4 rounded-2xl bg-card px-4 py-3 shadow-soft sm:left-6">
-              <p className="text-sm font-semibold text-navy">Fibre · 5G · Hotspot · LTE</p>
-            </div>
+          <div id="coverage" className="mt-8 max-w-5xl scroll-mt-24">
+            <CoverageChecker />
           </div>
-        </div>
-        <div id="coverage" className="mx-auto max-w-5xl scroll-mt-24 px-4 pb-16 pt-8 sm:px-6">
-          <CoverageChecker />
         </div>
       </section>
 
