@@ -4,21 +4,22 @@ import { CheckCircle2, Info, RotateCcw } from "lucide-react";
 import { getOptionsFor, getTechnology } from "@/data/mockProducts";
 import type { CoverageResult, TechnologyId } from "@/types";
 import { TechIcon } from "@/components/products/TechIcon";
+import { Button } from "@/components/ui/button";
 
 export function CoverageResults({ result, onReset }: { result: CoverageResult; onReset: () => void }) {
   const [open, setOpen] = useState<TechnologyId | null>(null);
 
   if (result.status === "not_found") {
     return (
-      <div className="rounded-3xl border border-accent/40 bg-accent/10 p-6 sm:p-8">
+      <div className="rounded-lg border border-border bg-card p-6 sm:p-8">
         <h3 className="font-display text-2xl font-semibold text-navy">We couldn't confirm coverage for this address yet.</h3>
         <p className="mt-2 max-w-2xl text-base text-muted-foreground">
           Check that your address is correct, try entering your suburb or postal code, or contact our team for assistance.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <button onClick={onReset} className="inline-flex h-12 items-center gap-2 rounded-xl bg-primary px-5 font-semibold text-primary-foreground hover:bg-primary/90">
+          <Button onClick={onReset} className="h-12 px-5 font-semibold">
             <RotateCcw className="h-4 w-4" aria-hidden="true" /> Try Another Address
-          </button>
+          </Button>
           <Link to="/contact" className="inline-flex h-12 items-center rounded-xl border border-navy/20 bg-card px-5 font-semibold text-navy hover:bg-sky">
             Contact Us
           </Link>
@@ -28,19 +29,22 @@ export function CoverageResults({ result, onReset }: { result: CoverageResult; o
   }
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
+    <div className="rounded-lg border border-border bg-card p-6 sm:p-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h3 className="font-display text-2xl font-semibold text-navy">Internet options for {result.address}</h3>
+          <h3 className="break-words font-display text-2xl font-semibold text-navy">Internet options for {result.address}</h3>
           <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
             <Info className="h-4 w-4" aria-hidden="true" /> Demonstration result · {result.areaLabel}. Not a confirmed coverage check.
           </p>
         </div>
-        <button onClick={onReset} className="inline-flex h-11 items-center gap-2 rounded-xl border border-border px-4 font-semibold text-navy hover:bg-sky">
+        <Button variant="outline" onClick={onReset} className="h-11 px-4 font-semibold text-navy">
           <RotateCcw className="h-4 w-4" aria-hidden="true" /> Search again
-        </button>
+        </Button>
       </div>
 
+      {result.available.length === 0 && (
+        <p role="status" className="mt-6 font-medium text-navy">{result.unavailable.map((id) => getTechnology(id).name).join(", ")} is not currently available in this demonstration area.</p>
+      )}
       <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {result.available.map((id) => {
           const t = getTechnology(id);
@@ -55,14 +59,14 @@ export function CoverageResults({ result, onReset }: { result: CoverageResult; o
                 <CheckCircle2 className="h-4 w-4" aria-hidden="true" /> Available in demo area
               </p>
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{t.description}</p>
-              <button
+              <Button
                 onClick={() => setOpen(isOpen ? null : id)}
                 aria-expanded={isOpen}
                 aria-controls="product-options"
-                className="mt-4 h-11 rounded-xl bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+                className="mt-4 h-11 px-4 text-sm font-semibold"
               >
                 {isOpen ? "Hide Options" : "View Options"}
-              </button>
+              </Button>
             </li>
           );
         })}
