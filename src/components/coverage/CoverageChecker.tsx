@@ -60,7 +60,9 @@ export function CoverageChecker() {
                 onClick={() => setService(option.id)}
                 className={`h-11 min-w-0 gap-1 rounded-md px-1 text-sm font-semibold shadow-none sm:gap-2 sm:px-3 ${option.id === "all" ? "col-span-4 sm:col-span-1" : ""} ${service === option.id ? "" : "border-muted-foreground/60 bg-card text-navy hover:border-primary hover:bg-sky"}`}
               >
-                {option.id === "all" ? <Layers aria-hidden="true" /> : <TechIcon id={option.id} />}
+                <span className="hidden shrink-0 sm:inline-flex">
+                  {option.id === "all" ? <Layers className="h-4 w-4" aria-hidden="true" /> : <TechIcon id={option.id} className="h-4 w-4" />}
+                </span>
                 {option.name}
               </Button>
             ))}
