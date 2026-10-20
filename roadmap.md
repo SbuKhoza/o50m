@@ -1,0 +1,2 @@
+- [x] Make navigation green and refine palette contrast.
+- [x] Refine coverage search with service choices and verify filtered results.

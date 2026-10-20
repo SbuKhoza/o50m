@@ -1,10 +1,13 @@
 import { useId, useRef, useState, type FormEvent } from "react";
-import { Loader2, MapPin, Search } from "lucide-react";
+import { Layers, Loader2, MapPin, Search, ShieldCheck } from "lucide-react";
 import { checkCoverage, validateAddress, MAX_ADDRESS_LENGTH } from "@/services/coverageService";
 import { DEMO_EXAMPLES } from "@/data/mockCoverage";
 import type { CoverageResult } from "@/types";
 import { CoverageResults } from "./CoverageResults";
 import { Button } from "@/components/ui/button";
+import { TECHNOLOGIES } from "@/data/mockProducts";
+import { TechIcon } from "@/components/products/TechIcon";
+import { selectCoverageService, type ServiceSelection } from "./serviceSelection";
 
 export const COVERAGE_INPUT_ID = "coverage-address";
 
@@ -13,6 +16,7 @@ export function CoverageChecker() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<CoverageResult | null>(null);
+  const [service, setService] = useState<ServiceSelection>("all");
   const inputRef = useRef<HTMLInputElement>(null);
   const errId = useId();
 
@@ -45,11 +49,29 @@ export function CoverageChecker() {
   return (
     <div>
       <form onSubmit={submit} noValidate className="rounded-lg border border-border bg-card p-5 shadow-soft sm:p-7">
+        <fieldset className="mb-6">
+          <legend className="mb-3 text-base font-semibold text-navy">Choose your coverage type</legend>
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+            {([{ id: "all", name: "All services" }, ...TECHNOLOGIES] as const).map((option) => (
+              <Button
+                key={option.id}
+                type="button"
+                variant={service === option.id ? "default" : "outline"}
+                aria-pressed={service === option.id}
+                onClick={() => setService(option.id)}
+                className={`h-12 gap-2 rounded-md px-4 text-base font-semibold shadow-none ${option.id === "all" ? "col-span-2" : ""} ${service === option.id ? "" : "border-muted-foreground/60 bg-card text-navy hover:border-primary hover:bg-sky"}`}
+              >
+                {option.id === "all" ? <Layers aria-hidden="true" /> : <TechIcon id={option.id} />}
+                {option.name}
+              </Button>
+            ))}
+          </div>
+        </fieldset>
         <label htmlFor={COVERAGE_INPUT_ID} className="block font-display text-lg font-semibold text-navy">
           Check availability at your address
         </label>
-        <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-          <div className="relative flex-1">
+        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:gap-0">
+          <div className="relative min-w-0 flex-1">
             <MapPin className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" aria-hidden="true" />
             <input
               ref={inputRef}
@@ -62,13 +84,13 @@ export function CoverageChecker() {
               placeholder="Enter your street address, suburb or postal code"
               aria-invalid={!!error}
               aria-describedby={error ? errId : undefined}
-              className="h-14 w-full rounded-xl border border-input bg-background pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
+               className="h-14 w-full rounded-md border border-muted-foreground/60 bg-background pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20 sm:rounded-r-none"
             />
           </div>
            <Button
             type="submit"
             disabled={loading}
-            className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-primary px-7 text-base font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:opacity-70"
+             className="h-14 gap-2 rounded-md px-6 text-base font-semibold disabled:opacity-70 sm:rounded-l-none"
           >
             {loading ? <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> : <Search className="h-5 w-5" aria-hidden="true" />}
             {loading ? "Checking…" : "Check Coverage"}
@@ -79,8 +101,9 @@ export function CoverageChecker() {
             {error}
           </p>
         )}
-        <p className="mt-3 text-sm text-muted-foreground">
-          Your address helps us find the available connection options for your area. We don't store it.
+        <p className="mt-3 flex items-start gap-2 text-sm text-muted-foreground">
+          <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
+          <span>Your address helps us find the available connection options for your area. We don't store it.</span>
         </p>
         <div className="mt-4 border-t border-border pt-4 text-sm text-muted-foreground">
           <span className="font-medium text-navy">Demo addresses:</span>{" "}
@@ -105,11 +128,11 @@ export function CoverageChecker() {
 
       <div aria-live="polite" className="mt-6">
         {loading && (
-          <p className="flex items-center gap-2 rounded-2xl bg-sky px-5 py-4 text-navy">
+           <p role="status" className="flex items-center gap-2 rounded-lg bg-card px-5 py-4 text-navy">
             <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> Looking up options for your address…
           </p>
         )}
-        {result && !loading && <CoverageResults result={result} onReset={reset} />}
+        {result && !loading && <CoverageResults key={`${service}-${result.address}`} result={selectCoverageService(result, service)} onReset={reset} />}
       </div>
     </div>
   );

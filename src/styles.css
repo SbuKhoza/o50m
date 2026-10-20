@@ -63,6 +63,7 @@
 
 @theme inline {
   --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --color-hero-foreground: var(--hero-foreground);
   --color-navy: var(--navy);
   --color-sky: var(--sky);
@@ -75,6 +76,7 @@
 
 :root {
   --brand: oklch(0.773461 0.171834 131.606371);
+  --brand-foreground: oklch(0.201081 0.040319 243.032497);
   --hero-foreground: oklch(1 0 0);
   --hero-shade: oklch(0.201081 0.040319 243.032497);
   --radius: 0.75rem;
@@ -117,6 +119,7 @@
 
 .dark {
   --brand: oklch(0.773461 0.171834 131.606371);
+  --brand-foreground: oklch(0.201081 0.040319 243.032497);
   --hero-foreground: oklch(1 0 0);
   --hero-shade: oklch(0.201081 0.040319 243.032497);
   --navy: oklch(0.96 0.01 140);
@@ -129,7 +132,7 @@
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
   --primary: oklch(0.773461 0.171834 131.606371);
-  --primary-foreground: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.201081 0.040319 243.032497);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
@@ -140,7 +143,7 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
+  --ring: oklch(0.773461 0.171834 131.606371);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -179,11 +182,15 @@
 }
 
 .hero-shade {
-  background: linear-gradient(90deg, color-mix(in oklab, var(--hero-shade) 92%, transparent), color-mix(in oklab, var(--hero-shade) 55%, transparent) 60%, color-mix(in oklab, var(--hero-shade) 15%, transparent));
+  background: linear-gradient(90deg, color-mix(in oklab, var(--hero-shade) 94%, transparent), color-mix(in oklab, var(--hero-shade) 70%, transparent) 60%, color-mix(in oklab, var(--hero-shade) 20%, transparent));
 }
 
 @media (max-width: 639px) {
   .hero-shade {
-    background: color-mix(in oklab, var(--hero-shade) 72%, transparent);
+    background: color-mix(in oklab, var(--hero-shade) 82%, transparent);
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
