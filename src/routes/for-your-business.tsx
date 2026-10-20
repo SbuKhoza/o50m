@@ -10,6 +10,8 @@ export const Route = createFileRoute("/for-your-business")({
       { name: "description", content: "Reliable internet for local shops, salons and offices. Check what's available at your business address." },
       { property: "og:title", content: "Business Internet — O50M Broadband" },
       { property: "og:description", content: "Keep your business connected with O50M." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: BusinessPage,

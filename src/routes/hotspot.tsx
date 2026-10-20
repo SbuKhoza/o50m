@@ -10,6 +10,8 @@ export const Route = createFileRoute("/hotspot")({
       { name: "description", content: "Explore O50M hotspot connectivity and check whether a supported service is available at your location." },
       { property: "og:title", content: "Hotspot Wi-Fi — O50M Broadband" },
       { property: "og:description", content: "Stay connected with O50M Hotspot." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HotspotPage,

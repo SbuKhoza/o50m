@@ -7,6 +7,8 @@ export const Route = createFileRoute("/terms")({
       { name: "description", content: "O50M Broadband terms and conditions (placeholder)." },
       { property: "og:title", content: "Terms — O50M Broadband" },
       { property: "og:description", content: "O50M Broadband terms and conditions." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (

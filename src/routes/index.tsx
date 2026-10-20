@@ -45,7 +45,7 @@ function Index() {
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-hero-foreground sm:text-5xl lg:text-6xl">
               O50M Broadband
             </h1>
-            <p className="mt-4 font-display text-2xl font-semibold leading-snug text-primary sm:text-3xl">Reliable internet. Right where you live.</p>
+            <p className="mt-4 font-display text-2xl font-semibold leading-snug text-brand sm:text-3xl">Reliable internet. Right where you live.</p>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-hero-foreground/90">
               Discover fast, dependable internet options for your home or business. Check your address to find out which O50M connections are available in your area.
             </p>

@@ -8,6 +8,8 @@ export const Route = createFileRoute("/signup")({
       { name: "description", content: "Sign up for an O50M Broadband customer account." },
       { property: "og:title", content: "Create an Account — O50M Broadband" },
       { property: "og:description", content: "Join O50M Broadband." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (

@@ -11,6 +11,8 @@ export const Route = createFileRoute("/for-your-home")({
       { name: "description", content: "Internet for South African households: online learning, remote work, streaming and staying in touch." },
       { property: "og:title", content: "Home Internet — O50M Broadband" },
       { property: "og:description", content: "Find an internet connection that fits your household." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HomePage,
