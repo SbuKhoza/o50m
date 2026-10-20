@@ -7,6 +7,8 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: "O50M Broadband privacy policy (placeholder)." },
       { property: "og:title", content: "Privacy Policy — O50M Broadband" },
       { property: "og:description", content: "O50M Broadband privacy policy." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (

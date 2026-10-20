@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Architecture
+- Brand colours are defined as semantic OKLCH tokens in `src/styles.css`; the home coverage tool sits within the full-bleed photo section so palette and placement stay consistent.
 - Coverage lookup lives only in `src/services/coverageService.ts` over `src/data/mockCoverage.ts`; components never import mock data for coverage logic — so Firebase/API can replace the service without UI changes.
 - Auth UI calls `src/services/authService.ts` placeholders only; no fake logged-in state or stored passwords until Firebase Auth is wired.
 - Product/technology copy lives in `src/data/mockProducts.ts`; never add prices, speeds or limits without verified data.

@@ -8,6 +8,8 @@ export const Route = createFileRoute("/login")({
       { name: "description", content: "Log in to your O50M Broadband account." },
       { property: "og:title", content: "Log In — O50M Broadband" },
       { property: "og:description", content: "Access your O50M account." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: () => (

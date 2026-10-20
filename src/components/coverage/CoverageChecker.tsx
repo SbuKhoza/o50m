@@ -4,6 +4,7 @@ import { checkCoverage, validateAddress, MAX_ADDRESS_LENGTH } from "@/services/c
 import { DEMO_EXAMPLES } from "@/data/mockCoverage";
 import type { CoverageResult } from "@/types";
 import { CoverageResults } from "./CoverageResults";
+import { Button } from "@/components/ui/button";
 
 export const COVERAGE_INPUT_ID = "coverage-address";
 
@@ -43,7 +44,7 @@ export function CoverageChecker() {
 
   return (
     <div>
-      <form onSubmit={submit} noValidate className="rounded-3xl border border-border bg-card p-5 shadow-soft sm:p-7">
+      <form onSubmit={submit} noValidate className="rounded-lg border border-border bg-card p-5 shadow-soft sm:p-7">
         <label htmlFor={COVERAGE_INPUT_ID} className="block font-display text-lg font-semibold text-navy">
           Check availability at your address
         </label>
@@ -64,14 +65,14 @@ export function CoverageChecker() {
               className="h-14 w-full rounded-xl border border-input bg-background pl-12 pr-4 text-base text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/20"
             />
           </div>
-          <button
+           <Button
             type="submit"
             disabled={loading}
             className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-primary px-7 text-base font-semibold text-primary-foreground transition hover:bg-primary/90 disabled:opacity-70"
           >
             {loading ? <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> : <Search className="h-5 w-5" aria-hidden="true" />}
             {loading ? "Checking…" : "Check Coverage"}
-          </button>
+           </Button>
         </div>
         {error && (
           <p id={errId} role="alert" className="mt-3 text-sm font-medium text-destructive">
@@ -85,16 +86,17 @@ export function CoverageChecker() {
           <span className="font-medium text-navy">Demo addresses:</span>{" "}
           {DEMO_EXAMPLES.map((ex, i) => (
             <span key={ex}>
-              <button
+              <Button
                 type="button"
-                className="text-primary underline-offset-2 hover:underline"
+                variant="link"
+                className="h-auto whitespace-normal p-0 text-sm text-primary underline-offset-2 hover:underline"
                 onClick={() => {
                   setAddress(ex);
                   submit(undefined, ex);
                 }}
               >
                 {ex}
-              </button>
+              </Button>
               {i < DEMO_EXAMPLES.length - 1 ? " · " : ""}
             </span>
           ))}
