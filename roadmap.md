@@ -1,2 +1,3 @@
-- [x] Make navigation green and refine palette contrast.
-- [x] Refine coverage search with service choices and verify filtered results.
+- [x] Restore white navigation and green logo.
+- [x] Compact the hero search and remove demo address shortcuts.
+- [x] Verify each service filter and All Services on narrow screens.

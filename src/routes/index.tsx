@@ -51,7 +51,7 @@ function Index() {
             </p>
             <p className="mt-6 text-sm font-semibold text-hero-foreground">Fibre · 5G · Hotspot · LTE</p>
           </div>
-          <div id="coverage" className="mt-8 max-w-5xl scroll-mt-24">
+          <div id="coverage" className="mt-6 max-w-5xl scroll-mt-24">
             <CoverageChecker />
           </div>
         </div>

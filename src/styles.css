@@ -185,6 +185,14 @@
   background: linear-gradient(90deg, color-mix(in oklab, var(--hero-shade) 94%, transparent), color-mix(in oklab, var(--hero-shade) 70%, transparent) 60%, color-mix(in oklab, var(--hero-shade) 20%, transparent));
 }
 
+.brand-logo {
+  background-color: var(--primary);
+  mask-image: var(--logo-image);
+  mask-size: contain;
+  mask-position: left center;
+  mask-repeat: no-repeat;
+}
+
 @media (max-width: 639px) {
   .hero-shade {
     background: color-mix(in oklab, var(--hero-shade) 82%, transparent);
