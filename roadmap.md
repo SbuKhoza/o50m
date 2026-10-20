@@ -1,3 +1,3 @@
-- [ ] Restore white navigation and green logo.
-- [ ] Compact the hero search and remove demo address shortcuts.
-- [ ] Verify each service filter and All Services on narrow screens.
+- [x] Restore white navigation and green logo.
+- [x] Compact the hero search and remove demo address shortcuts.
+- [x] Verify each service filter and All Services on narrow screens.
