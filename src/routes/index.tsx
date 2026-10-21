@@ -32,11 +32,17 @@ function Index() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-navy">
+        {/* Background image: fills the whole section and sits behind all content */}
         <img
           src={hero}
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
         />
+        {/* Dark gradient so the white text stays readable over the photo */}
         <div className="hero-shade absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-7xl px-4 pb-6 pt-10 sm:px-6 sm:pt-14 lg:pt-20">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-10 pt-10 sm:px-6 sm:pt-14 lg:pb-14 lg:pt-20">
           <div className="max-w-2xl">
             <h1 className="font-display text-4xl font-bold leading-[1.1] text-hero-foreground sm:text-5xl lg:text-6xl">
               O50M Broadband

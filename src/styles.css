@@ -78,7 +78,7 @@
   --brand: oklch(0.773461 0.171834 131.606371);
   --brand-foreground: oklch(0.201081 0.040319 243.032497);
   --hero-foreground: oklch(1 0 0);
-  --hero-shade: oklch(0.201081 0.040319 243.032497);
+  --hero-shade: oklch(20.108% 0.04034 243.057 / 0.877);
   --radius: 0.75rem;
   --navy: oklch(0.201081 0.040319 243.032497);
   --sky: oklch(0.976139 0.000000 89.875563);

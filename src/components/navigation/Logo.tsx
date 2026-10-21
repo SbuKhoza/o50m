@@ -1,11 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/o50M-Logo.png"
-import type { CSSProperties } from "react";
+import logo from "@/assets/o50M-Logo.png";
 
 export function Logo() {
   return (
     <Link to="/" aria-label="O50M Broadband home" className="inline-flex shrink-0 items-center py-1.5">
-      <span aria-hidden="true" className="brand-logo block h-9 w-24" style={{ "--logo-image": `url("${logo}")` } as CSSProperties} />
+      <img src={logo} alt="O50M" width={640} height={220} className="block h-10 w-auto" />
     </Link>
   );
 }

@@ -1,5 +1,5 @@
 import { useId, useRef, useState, type FormEvent } from "react";
-import { Layers, Loader2, MapPin, Search, ShieldCheck } from "lucide-react";
+import { Loader2, MapPin, Search, ShieldCheck } from "lucide-react";
 import { checkCoverage, validateAddress, MAX_ADDRESS_LENGTH } from "@/services/coverageService";
 import type { CoverageResult } from "@/types";
 import { CoverageResults } from "./CoverageResults";
@@ -47,21 +47,26 @@ export function CoverageChecker() {
 
   return (
     <div>
-      <form onSubmit={submit} noValidate className="max-w-3xl rounded-lg border border-border bg-card p-4 shadow-soft sm:p-5">
-        <fieldset className="mb-4 min-w-0">
+      {/*
+        SEARCH CARD WIDTH: change "max-w-2xl" below to resize the whole search box.
+        Options (smaller -> larger): max-w-xl (576px), max-w-2xl (672px), max-w-3xl (768px), max-w-4xl (896px).
+      */}
+      <form onSubmit={submit} noValidate className="max-w-2xl rounded-lg border border-border bg-card p-4 shadow-soft">
+        <fieldset className="mb-3 min-w-0">
           <legend className="mb-2 text-sm font-semibold text-navy">Choose your coverage type</legend>
-          <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-[auto_repeat(4,minmax(0,1fr))] sm:gap-2">
-            {([{ id: "all", name: "All Services" }, ...TECHNOLOGIES] as const).map((option) => (
+          <div className="grid grid-cols-4 gap-1.5">
+            {TECHNOLOGIES.map((option) => (
               <Button
                 key={option.id}
                 type="button"
                 variant={service === option.id ? "default" : "outline"}
                 aria-pressed={service === option.id}
-                onClick={() => setService(option.id)}
-                className={`h-11 min-w-0 gap-1 rounded-md px-1 text-sm font-semibold shadow-none sm:gap-2 sm:px-3 ${option.id === "all" ? "col-span-4 sm:col-span-1" : ""} ${service === option.id ? "" : "border-muted-foreground/60 bg-card text-navy hover:border-primary hover:bg-sky"}`}
+                // Clicking the selected service again clears the filter and shows all services
+                onClick={() => setService(service === option.id ? "all" : option.id)}
+                className={`h-9 min-w-0 gap-1.5 rounded-md px-1.5 text-[13px] font-semibold shadow-none ${service === option.id ? "" : "border-muted-foreground/60 bg-card text-navy hover:border-primary hover:bg-sky"}`}
               >
                 <span className="hidden shrink-0 sm:inline-flex">
-                  {option.id === "all" ? <Layers className="h-4 w-4" aria-hidden="true" /> : <TechIcon id={option.id} className="h-4 w-4" />}
+                  <TechIcon id={option.id} className="h-3.5 w-3.5" />
                 </span>
                 {option.name}
               </Button>
