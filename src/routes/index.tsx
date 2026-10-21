@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { createFileRoute, useLocation } from "@tanstack/react-router";
-import hero from "@/assets/hero-community.png.asset.json";
+import hero from "@/assets/hero.png";
 import { CoverageChecker, COVERAGE_INPUT_ID } from "@/components/coverage/CoverageChecker";
 import { ProductIntroGrid } from "@/components/products/ProductIntroGrid";
 
@@ -33,11 +33,7 @@ function Index() {
     <>
       <section className="relative isolate overflow-hidden bg-navy">
         <img
-          src={hero.url}
-          alt="A township neighbourhood at sunrise where a young woman uses her phone and friends share a laptop outside their homes"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[60%_center]"
-          width={1920}
-          height={728}
+          src={hero}
         />
         <div className="hero-shade absolute inset-0 -z-10" />
         <div className="mx-auto max-w-7xl px-4 pb-6 pt-10 sm:px-6 sm:pt-14 lg:pt-20">
