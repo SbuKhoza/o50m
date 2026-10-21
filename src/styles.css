@@ -68,6 +68,8 @@
   --color-navy: var(--navy);
   --color-sky: var(--sky);
   --color-success: var(--success);
+  --color-community: var(--community);
+  --color-community-foreground: var(--community-foreground);
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
   --shadow-soft: 0 12px 32px -14px color-mix(in oklab, var(--navy) 28%, transparent);
@@ -75,6 +77,8 @@
 }
 
 :root {
+  --community: oklch(0.952 0.038 173);
+  --community-foreground: oklch(0.201081 0.040319 243.032497);
   --brand: oklch(0.773461 0.171834 131.606371);
   --brand-foreground: oklch(0.201081 0.040319 243.032497);
   --hero-foreground: oklch(1 0 0);
@@ -118,6 +122,8 @@
 }
 
 .dark {
+  --community: oklch(0.27 0.035 173);
+  --community-foreground: oklch(0.984 0.003 247.858);
   --brand: oklch(0.773461 0.171834 131.606371);
   --brand-foreground: oklch(0.201081 0.040319 243.032497);
   --hero-foreground: oklch(1 0 0);

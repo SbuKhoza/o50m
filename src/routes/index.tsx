@@ -3,6 +3,7 @@ import { createFileRoute, useLocation } from "@tanstack/react-router";
 import hero from "@/assets/hero.png";
 import { CoverageChecker, COVERAGE_INPUT_ID } from "@/components/coverage/CoverageChecker";
 import { ProductIntroGrid } from "@/components/products/ProductIntroGrid";
+import { HomepageHighlights } from "@/components/home/HomepageHighlights";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,6 +71,7 @@ function Index() {
           <ProductIntroGrid />
         </div>
       </section>
+      <HomepageHighlights />
     </>
   );
 }

@@ -15,3 +15,4 @@
 - Service selection filters lookup results only in the coverage presentation module; retaining the original response lets visitors switch service choices without a new lookup or changing the future API contract.
 - Auth UI calls `src/services/authService.ts` placeholders only; no fake logged-in state or stored passwords until Firebase Auth is wired.
 - Product/technology copy lives in `src/data/mockProducts.ts`; never add prices, speeds or limits without verified data.
+- Homepage editorial highlights and the client counter value live in `src/data/homepageHighlights.ts`; the separate homepage presentation module animates the counter once on entry and respects reduced motion to keep content reusable and accessible.
