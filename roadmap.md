@@ -1,6 +1,6 @@
 - [x] Restore white navigation and green logo.
 - [x] Compact the hero search and remove demo address shortcuts.
 - [x] Verify each service filter and All Services on narrow screens.
-- [ ] Add refined home Wi-Fi and business broadband sections from the supplied references.
-- [ ] Add a fresh Why choose us background and animated 150+ client count.
-- [ ] Verify the new homepage sections, count and navigation on desktop and narrow screens.
+- [x] Add refined home Wi-Fi and business broadband sections from the supplied references.
+- [x] Add a fresh Why choose us background and animated 150+ client count.
+- [x] Verify the new homepage sections, count and navigation on desktop and narrow screens.
