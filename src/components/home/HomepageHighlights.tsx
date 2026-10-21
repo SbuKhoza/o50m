@@ -37,13 +37,13 @@ function ClientCounter() {
   }, []);
 
   return (
-    <div ref={element} className="border-t border-community-foreground/15 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-      <Users className="h-9 w-9 text-primary" aria-hidden="true" />
-      <p className="mt-4 font-display text-7xl font-bold leading-none tabular-nums text-community-foreground sm:text-8xl" aria-label={`${CLIENT_COUNT}+ clients`}>
+    <div ref={element} className="border-t border-community-foreground/15 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+      <Users className="h-6 w-6 text-primary" aria-hidden="true" />
+      <p className="mt-2 font-display text-5xl font-bold leading-none tabular-nums text-community-foreground sm:text-6xl" aria-label={`${CLIENT_COUNT}+ clients`}>
         <span aria-hidden="true">{count}+</span>
       </p>
-      <p className="mt-3 text-xl font-semibold">Clients connected</p>
-      <p className="mt-2 max-w-xs text-community-foreground/75">Homes, businesses and people. Part of the O50M community.</p>
+      <p className="mt-2 text-base font-semibold">Clients connected</p>
+      <p className="mt-1 max-w-xs text-sm leading-relaxed text-community-foreground/75">Homes, businesses and people. Part of the O50M community.</p>
     </div>
   );
 }
@@ -59,47 +59,47 @@ export function HomepageHighlights() {
   return (
     <>
       <section aria-labelledby="home-wifi-title" className="border-t border-border bg-card">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 md:grid-cols-2 lg:gap-10">
           <div>
-            <p className="flex items-center gap-2 text-sm font-bold uppercase text-primary"><House className="h-4 w-4" aria-hidden="true" /> For your home</p>
-            <h2 id="home-wifi-title" className="mt-4 max-w-lg font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">{HOMEPAGE_HIGHLIGHTS.home.title}</h2>
-            <p className="mt-5 max-w-xl leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.home.intro}</p>
-            <div className="mt-7 border-l-2 border-brand pl-5">
-              <h3 className="font-display text-xl font-bold text-navy">{HOMEPAGE_HIGHLIGHTS.home.detailTitle}</h3>
-              <p className="mt-2 max-w-xl leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.home.detail}</p>
+            <p className="flex items-center gap-2 text-[13px] font-bold uppercase text-primary"><House className="h-3.5 w-3.5" aria-hidden="true" /> For your home</p>
+            <h2 id="home-wifi-title" className="mt-3 max-w-lg font-display text-2xl font-bold leading-tight text-navy sm:text-3xl">{HOMEPAGE_HIGHLIGHTS.home.title}</h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.home.intro}</p>
+            <div className="mt-5 border-l-2 border-brand pl-4">
+              <h3 className="font-display text-lg font-bold text-navy">{HOMEPAGE_HIGHLIGHTS.home.detailTitle}</h3>
+              <p className="mt-1.5 max-w-xl text-sm leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.home.detail}</p>
             </div>
-            <Button asChild className="mt-7 min-h-12 whitespace-normal px-5 text-base font-semibold"><Link to="/for-your-home">Explore home Wi-Fi <ArrowUpRight aria-hidden="true" /></Link></Button>
+            <Button asChild className="mt-5 min-h-10 whitespace-normal px-4 text-sm font-semibold"><Link to="/for-your-home">Explore home Wi-Fi <ArrowUpRight aria-hidden="true" /></Link></Button>
           </div>
-          <img src={homeWifi.url} alt="Wi-Fi Pods extend a smart mesh connection across the rooms of a house" width={683} height={442} loading="lazy" className="aspect-[683/442] w-full object-contain" />
+          <img src={homeWifi.url} alt="Wi-Fi Pods extend a smart mesh connection across the rooms of a house" width={683} height={442} loading="lazy" className="mx-auto max-h-[300px] w-full object-contain" />
         </div>
       </section>
 
       <section aria-labelledby="business-wifi-title" className="bg-background">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-16 lg:py-20">
-          <img src={businessWifi.url} alt="Laptop and mobile phone connected to business video calls and collaboration tools" width={649} height={482} loading="lazy" className="order-2 aspect-[649/482] w-full object-contain mix-blend-multiply lg:order-1" />
+        <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 md:grid-cols-2 lg:gap-10">
+          <img src={businessWifi.url} alt="Laptop and mobile phone connected to business video calls and collaboration tools" width={649} height={482} loading="lazy" className="order-2 mx-auto max-h-[300px] w-full object-contain mix-blend-multiply lg:order-1" />
           <div className="order-1 lg:order-2">
-            <p className="flex items-center gap-2 text-sm font-bold uppercase text-primary"><Network className="h-4 w-4" aria-hidden="true" /> For your business</p>
-            <h2 id="business-wifi-title" className="mt-4 font-display text-3xl font-bold leading-tight text-navy sm:text-4xl">{HOMEPAGE_HIGHLIGHTS.business.title}</h2>
-            <p className="mt-5 leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.business.intro}</p>
-            <div className="mt-7 border-l-2 border-secondary pl-5">
-              <h3 className="font-display text-xl font-bold text-navy">{HOMEPAGE_HIGHLIGHTS.business.detailTitle}</h3>
-              <p className="mt-2 leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.business.detail}</p>
+            <p className="flex items-center gap-2 text-[13px] font-bold uppercase text-primary"><Network className="h-3.5 w-3.5" aria-hidden="true" /> For your business</p>
+            <h2 id="business-wifi-title" className="mt-3 font-display text-2xl font-bold leading-tight text-navy sm:text-3xl">{HOMEPAGE_HIGHLIGHTS.business.title}</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.business.intro}</p>
+            <div className="mt-5 border-l-2 border-secondary pl-4">
+              <h3 className="font-display text-lg font-bold text-navy">{HOMEPAGE_HIGHLIGHTS.business.detailTitle}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{HOMEPAGE_HIGHLIGHTS.business.detail}</p>
             </div>
-            <Button asChild className="mt-7 min-h-12 whitespace-normal px-5 text-base font-semibold"><Link to="/for-your-business">Explore business broadband <ArrowUpRight aria-hidden="true" /></Link></Button>
+            <Button asChild className="mt-5 min-h-10 whitespace-normal px-4 text-sm font-semibold"><Link to="/for-your-business">Explore business broadband <ArrowUpRight aria-hidden="true" /></Link></Button>
           </div>
         </div>
       </section>
 
       <section aria-labelledby="why-choose-title" className="bg-community text-community-foreground">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
-          <p className="flex items-center gap-2 text-sm font-bold uppercase text-primary"><Check className="h-4 w-4" aria-hidden="true" /> Why choose us</p>
-          <h2 id="why-choose-title" className="mt-4 font-display text-3xl font-bold leading-tight sm:text-4xl">Switch to O50M Broadband.</h2>
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_0.48fr] lg:gap-12">
-            <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10">
+          <p className="flex items-center gap-2 text-[13px] font-bold uppercase text-primary"><Check className="h-3.5 w-3.5" aria-hidden="true" /> Why choose us</p>
+          <h2 id="why-choose-title" className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">Switch to O50M Broadband.</h2>
+          <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_0.48fr] lg:gap-8">
+            <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
               {REASONS.map(({ icon: Icon, title, text }) => (
-                <div key={title} className="flex items-start gap-4">
-                  <Icon className="mt-1 h-7 w-7 shrink-0 text-primary" strokeWidth={1.7} aria-hidden="true" />
-                  <div><h3 className="font-display text-lg font-bold">{title}</h3><p className="mt-2 max-w-xs leading-relaxed text-community-foreground/75">{text}</p></div>
+                <div key={title} className="flex items-start gap-3">
+                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" strokeWidth={1.7} aria-hidden="true" />
+                  <div><h3 className="font-display text-[15px] font-bold">{title}</h3><p className="mt-1 max-w-xs text-sm leading-relaxed text-community-foreground/75">{text}</p></div>
                 </div>
               ))}
             </div>

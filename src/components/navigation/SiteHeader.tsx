@@ -15,7 +15,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-card text-navy">
-      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:flex sm:justify-between sm:px-6">
+      <div className="mx-auto grid h-14 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 sm:flex sm:justify-between sm:px-6">
         <Logo />
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           {LINKS.map((l) => (
@@ -25,35 +25,35 @@ export function SiteHeader() {
               activeOptions={{ exact: true }}
               activeProps={{ className: "bg-primary/10 text-primary" }}
               inactiveProps={{ className: "text-navy" }}
-              className="rounded-md px-3 py-2 text-[15px] font-semibold hover:bg-primary/10 hover:text-primary"
+              className="rounded-md px-2.5 py-1.5 text-sm font-semibold hover:bg-primary/10 hover:text-primary"
             >
               {l.label}
             </Link>
           ))}
-          <Button asChild className="ml-3 h-11 px-4 text-[15px] font-semibold">
+          <Button asChild className="ml-2 h-9 px-3.5 text-sm font-semibold">
             <Link to="/login">Login / Sign Up</Link>
           </Button>
         </nav>
         <Button
           variant="ghost"
           size="icon"
-          className="h-11 w-11 shrink-0 text-navy hover:bg-primary/10 hover:text-primary md:hidden"
+          className="h-10 w-10 shrink-0 text-navy hover:bg-primary/10 hover:text-primary md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-border bg-card px-4 pb-5 pt-2 md:hidden">
+        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-border bg-card px-4 pb-4 pt-2 md:hidden">
           {LINKS.map((l) => (
-            <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className="block rounded-md px-3 py-3 text-base font-semibold text-navy hover:bg-primary/10 hover:text-primary">
+            <Link key={l.to} to={l.to} onClick={() => setOpen(false)} className="block rounded-md px-3 py-2.5 text-[15px] font-semibold text-navy hover:bg-primary/10 hover:text-primary">
               {l.label}
             </Link>
           ))}
-          <Button asChild className="mt-2 h-12 w-full text-base font-semibold">
+          <Button asChild className="mt-2 h-11 w-full text-[15px] font-semibold">
             <Link to="/login" onClick={() => setOpen(false)}>Login / Sign Up</Link>
           </Button>
         </nav>
