@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, Headphones, House, MonitorPlay, Network, Router, Users, Wifi } from "lucide-react";
-import homeWifi from "@/assets/home-wifi.png.asset.json";
-import businessWifi from "@/assets/business-wifi.png.asset.json";
+import homeWifi from "@/assets/home-wifi.png";
+import businessWifi from "@/assets/business-wifi.png";
 import { Button } from "@/components/ui/button";
 import { CLIENT_COUNT, HOMEPAGE_HIGHLIGHTS, clientCountAtProgress } from "@/data/homepageHighlights";
 
@@ -70,13 +70,13 @@ export function HomepageHighlights() {
             </div>
             <Button asChild className="mt-5 min-h-10 whitespace-normal px-4 text-sm font-semibold"><Link to="/for-your-home">Explore home Wi-Fi <ArrowUpRight aria-hidden="true" /></Link></Button>
           </div>
-          <img src={homeWifi.url} alt="Wi-Fi Pods extend a smart mesh connection across the rooms of a house" width={683} height={442} loading="lazy" className="mx-auto max-h-[300px] w-full object-contain" />
+          <img src={homeWifi} alt="Wi-Fi Pods extend a smart mesh connection across the rooms of a house" width={1000} height={634} loading="lazy" className="mx-auto max-h-[300px] w-full object-contain" />
         </div>
       </section>
 
       <section aria-labelledby="business-wifi-title" className="bg-background">
         <div className="mx-auto grid max-w-6xl items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 md:grid-cols-2 lg:gap-10">
-          <img src={businessWifi.url} alt="Laptop and mobile phone connected to business video calls and collaboration tools" width={649} height={482} loading="lazy" className="order-2 mx-auto max-h-[300px] w-full object-contain mix-blend-multiply lg:order-1" />
+          <img src={businessWifi} alt="Laptop and mobile phone connected to business video calls and collaboration tools" width={1000} height={703} loading="lazy" className="order-2 mx-auto max-h-[300px] w-full object-contain mix-blend-multiply lg:order-1" />
           <div className="order-1 lg:order-2">
             <p className="flex items-center gap-2 text-[13px] font-bold uppercase text-primary"><Network className="h-3.5 w-3.5" aria-hidden="true" /> For your business</p>
             <h2 id="business-wifi-title" className="mt-3 font-display text-2xl font-bold leading-tight text-navy sm:text-3xl">{HOMEPAGE_HIGHLIGHTS.business.title}</h2>
